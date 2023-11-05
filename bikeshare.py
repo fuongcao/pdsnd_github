@@ -172,15 +172,21 @@ def display_data(df):
     
 def main():
     while True:
+        # Filter variables 
         city, month, day = get_filters()
         print('\nThank you for your selection: city :\"{}\", month: \"{}\", day: \"{}\"'.format(city, month, day))    
         
+        # Load data in csv file
         df = load_data(city, month, day)
 
+        # Run Time Stats
         time_stats(df)
+        # Run Station Stats
         station_stats(df)
+        # Run User Stats
         user_stats(df)
         
+        # Dislay raw data
         display_data(df)
         
         restart = input('\nWould you like to restart? Enter yes or no.\n')
