@@ -13,4 +13,5 @@ The file included here is a mini version of one of the actual data files you wil
 - washington.csv
 
 ### Credits
-- Udacity mentors
+- fuongcao
+- udacity mentors
