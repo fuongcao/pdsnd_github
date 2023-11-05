@@ -22,9 +22,9 @@ def get_filters():
     # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city, month, day = '', 'All', 'All'
     
-    city = input('Would you like to see data for Chicago, New York, or Washington ? : ').lower()
+    city = input('Would you like to see data for Chicago, New York, or Washington ? : ').trip().lower()
     while CITY_DATA.get(city, None) == None :
-        city = input("Please input city as {} :) :".format('/'.join(CITY_DATA))).lower()
+        city = input("Please input city as {} :) :".format('/'.join(CITY_DATA))).trip().lower()
     
     
     time_filter = input('Would you like to filter the data by month, day, both or not at all ? Type "none" for no time filter : ')
@@ -35,16 +35,16 @@ def get_filters():
     # (If they chose month) Which month - January, February, March, April, May, or June ...?
     # Get user input for month (all, january, february, ... , june)
     if time_filter in ['month', 'both']:
-        month = input('Which month - January, February, March, April, May, or June ... ? Type your select month name : ').lower().title()
+        month = input('Which month - January, February, March, April, May, or June ... ? Type your select month name : ').trip().lower().title()
         while month not in MONTHS:
-            month = input("Please Type as {} :) :".format('/'.join(MONTHS))).lower().title()
+            month = input("Please Type as {} :) :".format('/'.join(MONTHS))).trip().lower().title()
         
     # Get user input for day of week (all, monday, tuesday, ... sunday)
     # (If they chose day/both) Which day - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday?
     if time_filter in ['both', 'day']:
-        day = input('Which day - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday ? Type "all" for no day filter : ').lower().title()
+        day = input('Which day - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday ? Type "all" for no day filter : ').trip().lower().title()
         while day not in DAYOFWEEKS:
-            day = input("Please Type as {} :) :".format('/'.join(DAYOFWEEKS))).lower().title()
+            day = input("Please Type as {} :) :".format('/'.join(DAYOFWEEKS))).trip().lower().title()
 
     return city, month, day
 
@@ -161,14 +161,14 @@ def user_stats(df):
     print('-'*40)
 
 def display_data(df):
-    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
+    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').trip().lower()
     start_loc = 0
     end_loc = 5
     while view_data == 'yes':
         print(df[start_loc:end_loc])
         start_loc = end_loc
         end_loc += 5
-        view_data = input("Do you wish to continue?: ").lower()
+        view_data = input("Do you wish to continue?: ").trip().lower()
     
 def main():
     while True:
@@ -184,7 +184,7 @@ def main():
         display_data(df)
         
         restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+        if restart.trip().lower() != 'yes':
             break
 
 
